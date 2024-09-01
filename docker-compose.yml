@@ -3,11 +3,8 @@ version: "3.8"
 services:
   dbupdate:
     image: "maxmindinc/geoipupdate"
-    environment:
-      - GEOIPUPDATE_ACCOUNT_ID=<your_account_id>
-      - GEOIPUPDATE_LICENSE_KEY=<your_license_key>
-      - GEOIPUPDATE_EDITION_IDS=GeoLite2-City
-      - GEOIPUPDATE_FREQUENCY=24
+    env_file:
+      - stack.env
     volumes:
       - db-volume:/usr/share/GeoIP
   backend:
@@ -15,8 +12,8 @@ services:
     restart: on-failure:10
     depends_on:
       - dbupdate
-    environment:
-      - API_KEYS=key_1,key_2,key_3
+    env_file:
+      - stack.env
     volumes:
       - db-volume:/home/node/app
     ports:
