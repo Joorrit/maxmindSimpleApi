@@ -15,6 +15,8 @@ services:
     restart: on-failure:10
     depends_on:
       - dbupdate
+    environment:
+      - API_KEYS=key_1,key_2,key_3
     volumes:
       - db-volume:/home/node/app
     ports:
