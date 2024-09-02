@@ -15,7 +15,7 @@ services:
     env_file:
       - stack.env
     volumes:
-      - db-volume:/usr/src/app
+      - db-volume:/usr/share/GeoIP
     ports:
       - 8080:3000
 

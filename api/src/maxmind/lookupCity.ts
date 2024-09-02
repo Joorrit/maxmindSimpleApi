@@ -5,7 +5,7 @@ const options = {
 };
 
 export function lookupCity(ip: string) {
-    return Reader.open('GeoLite2-City.mmdb', options).then(reader => {
+    return Reader.open('/usr/share/GeoIP/GeoLite2-City.mmdb', options).then(reader => {
         return reader.city(ip);
     });
 }
