@@ -19,7 +19,6 @@ async function fileExists(filePath: string) {
 export async function lookupCity(ip: string) {
     const filePath = '/usr/share/GeoIP/GeoLite2-City.mmdb';
     const resolvedPath = path.resolve(filePath);
-    console.log(`Attempting to open file at: ${resolvedPath}`);
 
     const fileIsReady = await fileExists(resolvedPath);
 
